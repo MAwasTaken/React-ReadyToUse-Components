@@ -29,7 +29,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	box-shadow: 0 5px 15px #fdd6f1;
-  padding: 0 15px;
+	padding: 0 15px;
 }
 
 .input-field input {
@@ -37,10 +37,10 @@ body {
 	height: 100%;
 	background: transparent;
 	border: hidden;
-  font-size: 18px;
-  padding: 5px;
+	font-size: 18px;
+	padding: 5px;
 }
 
 .input-field span {
-  cursor: pointer;
+	cursor: pointer;
 }

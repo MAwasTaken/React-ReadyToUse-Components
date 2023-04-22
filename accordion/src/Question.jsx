@@ -1,5 +1,5 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // packages
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
@@ -10,15 +10,18 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 // question
 function Question() {
+	// states
+	const [showInfo, setShowInfo] = useState(false);
+  
 	return (
 		<div className='question'>
 			<header>
 				<h4>This is the 1st question</h4>
-				<button>
+				<button onClick={() => setShowInfo((prevState) => !prevState)}>
 					<AiOutlinePlus />
 				</button>
 			</header>
-      <p>this is content</p>
+			{showInfo && <p>this is content</p>}
 		</div>
 	);
 }

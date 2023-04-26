@@ -1,5 +1,5 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // packages
 
@@ -7,14 +7,20 @@ import React from "react";
 
 // components
 import Question from "./Question";
+import data from "./data";
 
 // app
 function App() {
+	// states
+	const [questions, setQuestions] = useState(data);
+
 	return (
 		<div className='container'>
 			<h3>Have a question ?</h3>
 			<div className='info'>
-				<Question />
+				{questions.map((question) => (
+					<Question {...question} key={question.id} />
+				))}
 			</div>
 		</div>
 	);

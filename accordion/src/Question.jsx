@@ -9,19 +9,17 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 // components
 
 // question
-function Question() {
+function Question({ title, info }) {
 	// states
 	const [showInfo, setShowInfo] = useState(false);
-  
+
 	return (
 		<div className='question'>
 			<header>
-				<h4>This is the 1st question</h4>
-				<button onClick={() => setShowInfo((prevState) => !prevState)}>
-					<AiOutlinePlus />
-				</button>
+				<h4>{title}</h4>
+				<button onClick={() => setShowInfo((prevState) => !prevState)}>{!showInfo ? <AiOutlinePlus /> : <AiOutlineMinus />}</button>
 			</header>
-			{showInfo && <p>this is content</p>}
+			{showInfo && <p>{info}</p>}
 		</div>
 	);
 }

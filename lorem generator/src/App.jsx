@@ -1,25 +1,40 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // packages
 
 // styles
 
 // components
+import data from "./data";
 
 // app
 function App() {
+	// states
+	const [count, setCount] = useState(0);
+	const [text, setText] = useState([]);
+
+	// functions
+	const submitHandeler = (event) => {
+		event.preventDefault();
+
+		console.log(count);
+		setText(data);
+	};
+
 	return (
 		<div className='section-center'>
-      <h4>Lorem Ipsum Generator</h4>
-      <form className="lorem">
-        <label htmlFor="total">paragraph count: </label>
-        <input type="number" />
-        <button type="submit">Generate!</button>
-      </form>
-      <article className="lorem-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa autem cumque temporibus vero laboriosam quia necessitatibus reiciendis quos, incidunt dolore architecto, numquam vel odit nihil dicta accusamus ea! Ut, deleniti.</p>
-      </article>
+			<h4>Lorem Ipsum Generator</h4>
+			<form className='lorem' onSubmit={submitHandeler}>
+				<label htmlFor='total'>paragraph count: </label>
+				<input type='number' name='total' value={count} onChange={(event) => setCount(event.target.value)} />
+				<button type='submit'>Generate!</button>
+			</form>
+			<article className='lorem-text'>
+				{text.map((item, index) => (
+					<p key={index}>{item}</p>
+				))}
+			</article>
 		</div>
 	);
 }

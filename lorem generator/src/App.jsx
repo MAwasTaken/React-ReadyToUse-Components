@@ -18,8 +18,12 @@ function App() {
 	const submitHandeler = (event) => {
 		event.preventDefault();
 
-		console.log(count);
-		setText(data);
+		let amount = parseInt(count);
+
+		if (count <= 0) amount = 1;
+		else if (count > 4) amount = 4;
+    
+		setText(data.slice(0, amount));
 	};
 
 	return (

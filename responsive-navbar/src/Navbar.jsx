@@ -18,7 +18,7 @@ function Navbar() {
 					<button className='nav-toggle'>
 						<FaBars />
 					</button>
-					MAwasTaken
+					<span>MAwasTaken</span>
 				</div>
 				<div className='nav-links'>
 					<ul className='list'>

@@ -1,8 +1,8 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // packages
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 // styles
 
@@ -11,16 +11,20 @@ import { links, socials } from "./data";
 
 // navbar
 function Navbar() {
+	// states
+	const [showLinks, setShowLinks] = useState(false);
+
+	// jsx
 	return (
 		<nav>
 			<div className='container'>
 				<div className='nav-logo'>
-					<button className='nav-toggle'>
-						<FaBars />
+					<button className='nav-toggle' onClick={() => setShowLinks(!showLinks)}>
+						{showLinks ? <FaTimes /> : <FaBars />}
 					</button>
 					<span>MAwasTaken</span>
 				</div>
-				<div className='nav-links'>
+				<div className={showLinks ? "nav-links active" : "nav-links"}>
 					<ul className='list'>
 						{links.map((link) => (
 							<li key={link.id}>
@@ -30,12 +34,12 @@ function Navbar() {
 					</ul>
 				</div>
 				<div className='nav-social'>
-          {socials.map(social => (
-            <li key={social.id}>
-              <a href={social.url}>{social.icon}</a>
-            </li>
-          ))}
-        </div>
+					{socials.map((social) => (
+						<li key={social.id}>
+							<a href={social.url}>{social.icon}</a>
+						</li>
+					))}
+				</div>
 			</div>
 		</nav>
 	);

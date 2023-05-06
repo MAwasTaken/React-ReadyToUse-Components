@@ -9,7 +9,7 @@
 body {
 	direction: rtl;
 	font-family: "Vazir" !important;
-  background-color: #f8f8f8 !important;
+	background-color: #f8f8f8 !important;
 }
 
 nav {
@@ -20,7 +20,7 @@ nav {
 	box-shadow: 0 0 10px rgba(117, 117, 117, 0.3);
 	height: 65px;
 	padding: 0 20px;
-  position: relative;
+	position: relative;
 }
 
 .container {
@@ -48,6 +48,10 @@ nav {
 	display: none;
 }
 
+.nav-links {
+	transition: all 0.3s ease;
+}
+
 .nav-links .list {
 	display: flex;
 	align-items: center;
@@ -59,51 +63,54 @@ nav {
 }
 
 .nav-links .list li a {
-  color: #333;
-  font-size: 17px;
+	color: #333;
+	font-size: 17px;
 }
 
 .nav-social {
-  display: flex;
+	display: flex;
 	list-style: none;
 }
 
 .nav-social li {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
-@media screen and (max-width: 768px){
-  .nav-logo {
-    width: 100%;
-  }
+@media screen and (max-width: 768px) {
+	.nav-logo {
+		width: 100%;
+	}
 
-  .nav-logo .nav-toggle {
-    display: block;
-  }
+	.nav-logo .nav-toggle {
+		display: block;
+	}
 
-  .nav-logo span {
-    display: none;
-  }
+	.nav-links {
+		position: absolute;
+		right: 0;
+		left: 0;
+		top: 65px;
+		height: 300px;
+		background: #fff;
+		border-top: 1px solid rgb(245, 245, 245);
+		height: 0;
+		overflow: hidden;
+		z-index: -1;
+	}
 
-  .nav-links {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 65px;
-    height: 300px;
-    background: #fff;
-    border-top: 1px solid rgb(245, 245, 245);
-  }
-  
-  .nav-links .list {
-    display: block;
-  }
+	.nav-links .list {
+		display: block;
+	}
 
-  .nav-links .list li {
-    padding: 15px 20px;
-  }
+	.nav-links .list li {
+		padding: 15px 20px;
+	}
 
-  .nav-social{
-    display: none;
+	.nav-social {
+		display: none;
+	}
+
+  .active {
+    height: 13rem;
   }
 }

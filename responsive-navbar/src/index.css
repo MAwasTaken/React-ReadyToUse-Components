@@ -110,7 +110,12 @@ nav {
 		display: none;
 	}
 
-  .active {
-    height: 13rem;
+	.active {
+		height: 13rem;
+	}
+}
+@media screen and (min-width: 768px) {
+  .nav-links {
+    height: auto !important;
   }
 }

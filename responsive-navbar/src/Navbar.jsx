@@ -1,5 +1,5 @@
 // react
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // packages
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -14,6 +14,17 @@ function Navbar() {
 	// states
 	const [showLinks, setShowLinks] = useState(false);
 
+	// side effects
+	useEffect(() => {
+		const linksHeight = linksRef.current.getBoundingClientRect().height;
+		if (showLinks) linksContainerRef.current.style.height = `${linksHeight}px`;
+		else linksContainerRef.current.style.height = "0";
+	}, [showLinks]);
+
+	// references
+	const linksContainerRef = useRef(null);
+	const linksRef = useRef(null);
+
 	// jsx
 	return (
 		<nav>
@@ -24,8 +35,8 @@ function Navbar() {
 					</button>
 					<span>MAwasTaken</span>
 				</div>
-				<div className={showLinks ? "nav-links active" : "nav-links"}>
-					<ul className='list'>
+				<div className='nav-links' ref={linksContainerRef}>
+					<ul className='list' ref={linksRef}>
 						{links.map((link) => (
 							<li key={link.id}>
 								<a href={link.url}>{link.text}</a>

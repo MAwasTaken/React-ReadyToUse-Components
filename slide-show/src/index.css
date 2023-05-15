@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+body {
+	direction: rtl;
+	font-family: "Vazir" !important;
+	background-color: #f8f8f8 !important;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	box-shadow: 0 0 10px rgba(117, 117, 117, 0.3);
+	height: 65px;
+	padding: 0 20px;
+	position: relative;
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+main .title {
+	font-size: 25px;
+	text-align: center;
+}
+
+.reviews {
+	width: 400px;
+	margin-top: 50px;
+	box-shadow: 0 0 10px rgba(131, 131, 131, 0.3);
+	background: #fff;
+	position: relative;
+	height: 350px;
+	text-align: center;
+}
+
+.reviews img {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.author {
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.job {
+	color: crimson;
+	font-weight: 600;
+  padding: 10px;
+}
+
+.info {
+	color: rgba(87, 87, 87);
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+	color: crimson;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.review-button {
+	position: absolute;
+	bottom: 20px;
+}
+
+.review-button button {
+	margin: 0 10px;
+}
+
+.random-btn {
+	background: rgba(220, 20, 60, 0.2);
+  position: absolute;
+  bottom: 20px;
+  transform: translateX(50%);
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Vazir';
+}

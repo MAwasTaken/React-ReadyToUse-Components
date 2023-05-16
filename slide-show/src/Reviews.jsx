@@ -1,24 +1,50 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // packages
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
+// styles
+
+// components
+import data from "../data";
+
 // review
 function Reviews() {
+	// states
+	const [index, setIndex] = useState(0);
+	const { name, job, image, text } = data[index];
+
+	// functions
+	const nextSlide = () => {
+		setIndex((index) => {
+			let newIndex = index + 1;
+
+			return newIndex;
+		});
+	};
+
+	const prevSlide = () => {
+		setIndex((index) => {
+			let newIndex = index - 1;
+
+			return newIndex;
+		});
+	};
+
 	return (
 		<div className='reviews'>
 			<div className='review-img'>
-				<img src='' alt='' />
+				<img src={image} alt='' />
 			</div>
-			<h4 className='author'>MAwasTaken</h4>
-			<p className='job'>graphist</p>
-			<p className='info'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita nesciunt cum earum, mollitia numquam eius cumque. Unde assumenda magnam inventore quas? Fugit consequuntur itaque, nisi quae necessitatibus ab magni aperiam!</p>
+			<h4 className='author'>{name}</h4>
+			<p className='job'>{job}</p>
+			<p className='info'>{text}</p>
 			<div className='review-button'>
-				<button>
+				<button onClick={nextSlide}>
 					<FaChevronRight />
 				</button>
-				<button>
+				<button onClick={prevSlide}>
 					<FaChevronLeft />
 				</button>
 			</div>

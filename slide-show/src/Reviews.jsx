@@ -20,7 +20,7 @@ function Reviews() {
 		setIndex((index) => {
 			let newIndex = index + 1;
 
-			return newIndex;
+			return checkNumber(newIndex);
 		});
 	};
 
@@ -28,10 +28,26 @@ function Reviews() {
 		setIndex((index) => {
 			let newIndex = index - 1;
 
-			return newIndex;
+			return checkNumber(newIndex);
 		});
 	};
 
+	const checkNumber = (number) => {
+		if (number > data.length - 1) return 0;
+		if (number < 0) return data.length - 1;
+
+		return number;
+	};
+
+	const randomPerson = () => {
+		let randomNumber = Math.floor(Math.random() * data.length);
+
+		if (randomNumber === index) randomNumber = index + 1;
+
+		setIndex(checkNumber(randomNumber));
+	};
+
+	// jsx
 	return (
 		<div className='reviews'>
 			<div className='review-img'>
@@ -48,7 +64,9 @@ function Reviews() {
 					<FaChevronLeft />
 				</button>
 			</div>
-			<button className='random-btn'>Random</button>
+			<button className='random-btn' onClick={randomPerson}>
+				Random
+			</button>
 		</div>
 	);
 }

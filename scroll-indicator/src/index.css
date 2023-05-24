@@ -1,0 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border: none;
+	outline: none;
+  list-style: none;
+}
+
+body {
+	direction: rtl;
+	font-family: "Vazir" !important;
+	background-color: #f8f8f8 !important;
+}
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+  background: #111;
+}
+
+header ul {
+	display: flex;
+	align-items: center;
+}
+
+header ul li {
+  padding: 20px 0;
+  margin-left: 20px;
+  color: #fff;
+}
+
+.content {
+  padding: 20px 300px;
+}
+
+.content p {
+  margin-top: 100px;
+}
+
+.wrapper {
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+
+.progressbar {
+  width: 100%;
+  height: 12px;
+  background: #999;
+  z-index: 1;
+}
+
+.progressbarMain {
+  width: 0;
+  height: 12px;
+  background: crimson;
+}

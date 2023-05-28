@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 function App() {
 	// states
 	const [value, setValue] = useState('');
+	const [result, setResult] = useState('');
 
 	// functions
 	const fetchImage = () => {
@@ -18,12 +19,8 @@ function App() {
 			`https://api.unsplash.com/search/photos/?client_id=8LEuoBlAwlNTFHJRykgpwLkZSA_Tg8X2LMzO2-vRdeI&query=${value}`
 		)
 			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-			});
+			.then((data) => setResult(data.results));
 	};
-
-	// 8LEuoBlAwlNTFHJRykgpwLkZSA_Tg8X2LMzO2-vRdeI
 
 	// jsx
 	return (
@@ -38,10 +35,14 @@ function App() {
 				<button onClick={fetchImage}>Send</button>
 			</div>
 			<div className='gallery'>
-				<img
-					src=''
-					alt='image'
-				/>
+				{result &&
+					result.map((item) => (
+						<img
+							key={item.id}
+							src={item.urls.regular}
+							alt='image'
+						/>
+					))}
 			</div>
 		</div>
 	);

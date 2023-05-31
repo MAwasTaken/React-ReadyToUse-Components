@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+body {
+	direction: ltr;
+	font-family: 'Vazir' !important;
+	background: linear-gradient(159deg, rgba(20, 179, 171, 1) 0%, rgba(66, 9, 119, 1) 100%);
+  height: 100vh;
+}
+
+textarea {
+  height: 120px !important;
+  resize: none !important;
+}
+
+input, textarea {
+  border: none !important;
+  border-bottom: 1px solid #ced4da !important;
+}
+
+input, textarea:focus {
+  box-shadow: none !important;
+}

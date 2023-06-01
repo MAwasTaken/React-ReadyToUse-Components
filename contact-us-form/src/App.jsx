@@ -5,18 +5,26 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // packages
+import emailjs from '@emailjs/browser';
 
 // components
 
 // app
 function App() {
+	const sendEmail = (event) => {
+		event.preventDefault();
+
+		emailjs
+			.sendForm('service_6zoqzau', 'template_ih9ucir', event.target, 'M9MwPZK1IXvWJ9nw3')
+			.then((result) => console.log(result));
+	};
 	// jsx
 	return (
 		<div className='container py-5'>
 			<div className='row py-5 justify-content-center'>
 				<div className='col-md-4 bg-white p-5 mt-5'>
 					<h2 className='pb-5 text-center'>Send Message To Admin</h2>
-					<form>
+					<form onSubmit={sendEmail}>
 						<div className='form-group'>
 							<input
 								type='text'

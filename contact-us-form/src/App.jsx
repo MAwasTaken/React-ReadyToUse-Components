@@ -3,9 +3,11 @@ import React from 'react';
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // packages
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
 
 // components
 
@@ -14,9 +16,16 @@ function App() {
 	const sendEmail = (event) => {
 		event.preventDefault();
 
-		emailjs
-			.sendForm('service_6zoqzau', 'template_ih9ucir', event.target, 'M9MwPZK1IXvWJ9nw3')
-			.then((result) => console.log(result));
+		emailjs.sendForm('service_6zoqzau', 'template_ih9ucir', event.target, 'M9MwPZK1IXvWJ9nw3').then(
+			(result) => {
+				if (result.status === 200)
+					toast.success('Your Message Sent Successfully', {
+						position: 'top-right',
+						closeOnClick: true,
+					});
+			},
+			(error) => console.log(error)
+		);
 	};
 	// jsx
 	return (
@@ -58,6 +67,7 @@ function App() {
 					</form>
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 }
